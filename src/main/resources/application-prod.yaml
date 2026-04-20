@@ -4,8 +4,6 @@ spring:
       project-id: ${GCP-PROJECT-ID:test}
       credentials:
         encoded-key: ${GCP_CREDENTIALS:test}
-      pubsub:
-        account-master-to-notification: ${ACCOUNT_MASTER_TO_NOTIFICATION_TOPIC:notification-request-queue}
   datasource:
     url: jdbc:postgresql://${CONSUMER-SERVICE-DB-IP}:5432/${CONSUMER-SERVICE-DB-NAME}
     username: ${CONSUMER-SERVICE-DB-USERNAME}

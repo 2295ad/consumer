@@ -6,7 +6,7 @@ spring:
   cloud:
     gcp:
       pubsub:
-        connector-to-account-master: X_TO_CONSUMER
+        x-to-consumer-service: X_TO_CONSUMER
 server:
   port: 8080
   servlet:
