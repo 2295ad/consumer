@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: consumer
+  profiles:
+    active:  ${PROFILE:dev}
+  cloud:
+    gcp:
+      pubsub:
+        connector-to-account-master: X_TO_CONSUMER
+server:
+  port: 8080
+  servlet:
+    context-path: /consumer
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - [TRACE-ID=%X{traceId}] %msg%n"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
