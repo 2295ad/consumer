@@ -1,7 +1,7 @@
 package com.skylo.consumer.dto.enums;
 
 public enum TopicName {
-  X_TO_CONSUMER_SERVICE_SYNC("projects/%1$s/topics/%2$s", "projects/%1$s/subscriptions/%2$s-sub");
+  X_TO_CONSUMER_SERVICE("projects/%1$s/topics/%2$s", "projects/%1$s/subscriptions/%2$s-sub");
 
   private final String topicName;
   private final String subscriptionName;

@@ -27,7 +27,7 @@ public class PubSubAdaptorConfiguration {
         new PubSubInboundChannelAdapter(
             pubSubTemplate,
             String.format(
-                TopicName.X_TO_CONSUMER_SERVICE_SYNC.getSubscriptionName(),
+                TopicName.X_TO_CONSUMER_SERVICE.getSubscriptionName(),
                 gcpTopic,
                 xToConsumerServiceSyncChannel));
     adapter.setOutputChannel(xToConsumerServiceSyncChannel);
