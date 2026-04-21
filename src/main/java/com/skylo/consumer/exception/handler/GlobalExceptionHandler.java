@@ -15,7 +15,7 @@ import org.springframework.web.context.request.WebRequest;
 public class GlobalExceptionHandler {
 
   @ExceptionHandler(ConsumerServiceException.class)
-  public ResponseEntity<ConsumerServiceResponse<Object>> handlePaymentServiceException(
+  public ResponseEntity<ConsumerServiceResponse<Object>> handleConsumerServiceException(
       ConsumerServiceException ex, WebRequest request) {
     ErrorResponseDTO error =
         ErrorResponseDTO.builder().code(ex.getHttpStatus()).message(ex.getMessage()).build();
