@@ -60,7 +60,7 @@ public class ConsumerServiceImpl implements ConsumerService {
     if (Objects.isNull(transactionEntity)) {
       log.info("Invalid tx id - " + transactionStatusRequest.getTransaction());
       throw new ConsumerServiceException(
-          "Invalid tx id - " + transactionStatusRequest.getTransaction(), HttpStatus.BAD_REQUEST);
+          "Invalid tx id -" + transactionStatusRequest.getTransaction(), HttpStatus.BAD_REQUEST);
     }
     transactionEntity.setStatus(transactionStatusRequest.getStatus());
     consumerTransactions.save(transactionEntity);
