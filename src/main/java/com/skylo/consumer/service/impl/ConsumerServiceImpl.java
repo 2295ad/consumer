@@ -1,6 +1,5 @@
 package com.skylo.consumer.service.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skylo.consumer.dto.TransactionDTO;
 import com.skylo.consumer.dto.TransactionStatusRequest;
 import com.skylo.consumer.dto.enums.TransactionStatus;
@@ -24,7 +23,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class ConsumerServiceImpl implements ConsumerService {
 
   private final ConsumerTransactions consumerTransactions;
-  private final ObjectMapper objectMapper;
   private final OrchestratorApi orchestratorApi;
   private final TransactionEntityMapper transactionEntityMapper;
 
