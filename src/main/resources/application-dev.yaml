@@ -15,4 +15,4 @@ security:
   api-key: ${CONSUMER-SERVICE-API-KEY:test}
 external-service:
   orchestrator:
-    base-url: ${ORCHESTRATOR-URL:http://localhost:8081/tx-workflow}
+    base-url: ${ORCHESTRATOR-URL:http://localhost:8081/workflows}

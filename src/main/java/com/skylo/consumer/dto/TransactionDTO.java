@@ -14,16 +14,10 @@ import lombok.NoArgsConstructor;
 @Builder
 public class TransactionDTO {
   private Integer id;
-
   private String transactionId;
-
   private Map<String, Object> payload;
-
   private TransactionStatus status;
-
   private Integer version;
-
   private LocalDateTime createdAt;
-
   private LocalDateTime updatedAt;
 }

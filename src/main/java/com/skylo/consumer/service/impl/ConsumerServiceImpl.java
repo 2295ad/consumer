@@ -30,17 +30,21 @@ public class ConsumerServiceImpl implements ConsumerService {
   @Transactional
   public void processTransaction(Map<String, Object> payload) {
     try {
-      TransactionEntity transactionEntity =
-          TransactionEntity.builder()
-              .transactionId((String) payload.get("transaction"))
-              .status(TransactionStatus.PENDING)
-              .payload(payload)
-              .build();
-      consumerTransactions.save(transactionEntity);
-      log.info("invoke orchestrator api");
-      //      orchestratorApi.invokeOrchestrator(payload);
+      String transactionId = (String) payload.get("transaction");
+      if (Objects.isNull(consumerTransactions.fetchTx(transactionId))) {
+        TransactionEntity transactionEntity =
+            TransactionEntity.builder()
+                .transactionId(transactionId)
+                .status(TransactionStatus.PENDING)
+                .payload(payload)
+                .build();
+        consumerTransactions.save(transactionEntity);
+        log.info("invoke orchestrator api");
+        orchestratorApi.invokeOrchestrator(payload);
+      }
     } catch (Exception ex) {
-      log.info("exception while processing tx - {}", payload.get("transaction"));
+      log.info(
+          "exception while processing tx - {} - {}", payload.get("transaction"), ex.getMessage());
       throw new ConsumerServiceException(ex.getMessage());
     }
   }

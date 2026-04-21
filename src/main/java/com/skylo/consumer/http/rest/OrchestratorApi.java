@@ -36,7 +36,7 @@ public class OrchestratorApi {
     return resp.getBody();
   }
 
-  public Map<String, Object> invokeOrchestrator(Map<String, Object> payload) {
+  public void invokeOrchestrator(Map<String, Object> payload) {
     String url =
         orchestratorBaseUrl.concat(
             externalApi.getServices().get("orchestrator").get("initiate-workflow"));
@@ -47,9 +47,7 @@ public class OrchestratorApi {
             HttpMethod.POST,
             payload,
             new ParameterizedTypeReference<Map<String, Object>>() {});
-    if ((Boolean) response.get("success")) {
-      return (Map<String, Object>) response.get("data");
-    } else {
+    if (!(Boolean) response.get("success")) {
       throw new ConsumerServiceException("unable to invoke orchestrator");
     }
   }

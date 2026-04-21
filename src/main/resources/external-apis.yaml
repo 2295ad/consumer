@@ -1,6 +1,6 @@
 services:
   orchestrator:
-    initiate-workflow: /initiate
+    initiate-workflow: /sync/v1
 
 
 
