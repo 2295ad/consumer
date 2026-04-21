@@ -1,9 +1,9 @@
 spring:
   cloud:
     gcp:
-      project-id: ${GCP-PROJECT-ID:test}
+      project-id: ${GCP-PROJECT-ID:prod}
       credentials:
-        encoded-key: ${GCP_CREDENTIALS:test}
+        location: classpath:service-account.json
   datasource:
     url: jdbc:postgresql://${CONSUMER-SERVICE-DB-IP}:5432/${CONSUMER-SERVICE-DB-NAME}
     username: ${CONSUMER-SERVICE-DB-USERNAME}

@@ -29,7 +29,7 @@ public class PubSubAdaptorConfiguration {
             String.format(
                 TopicName.X_TO_CONSUMER_SERVICE.getSubscriptionName(),
                 gcpTopic,
-                xToConsumerServiceSyncChannel));
+                xToConsumerService));
     adapter.setOutputChannel(xToConsumerServiceSyncChannel);
     adapter.setAckMode(AckMode.MANUAL);
     adapter.setPayloadType(Object.class);

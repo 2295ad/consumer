@@ -2,6 +2,7 @@ package com.skylo.consumer.dto;
 
 import com.skylo.consumer.dto.enums.TransactionStatus;
 import java.time.LocalDateTime;
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class TransactionDTO {
 
   private String transactionId;
 
-  private String payload;
+  private Map<String, Object> payload;
 
   private TransactionStatus status;
 

@@ -1,15 +1,18 @@
 spring:
   cloud:
     gcp:
-      project-id: ${GCP-PROJECT-ID:test}
+      project-id: ${GCP-PROJECT-ID:core-incentive-493910-g4}
       credentials:
-        encoded-key: ${GCP_CREDENTIALS:test}
+        location: classpath:service-account.json
   datasource:
-    url: jdbc:postgresql://${CONSUMER-SERVICE-DB-IP}:5432/${CONSUMER-SERVICE-DB-NAME}
-    username: ${CONSUMER-SERVICE-DB-USERNAME}
-    password: ${CONSUMER-SERVICE-DB-PASSWORD}
+    url: jdbc:postgresql://${CONSUMER-SERVICE-DB-IP:localhost}:5432/${CONSUMER-SERVICE-DB-NAME:transaction}
+    username: ${CONSUMER-SERVICE-DB-USERNAME:adarshnambiar}
+    password: ${CONSUMER-SERVICE-DB-PASSWORD:tx}
     driver:
       class:
         name: org.postgresql.Driver
 security:
   api-key: ${CONSUMER-SERVICE-API-KEY:test}
+external-service:
+  orchestrator:
+    base-url: ${ORCHESTRATOR-URL:http://localhost:8081/tx-workflow}

@@ -1,4 +1,6 @@
 spring:
+  config:
+    import: classpath:external-apis.yaml
   application:
     name: consumer
   profiles:
@@ -10,7 +12,7 @@ spring:
 server:
   port: 8080
   servlet:
-    context-path: /consumer
+    context-path: /transaction-service
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - [TRACE-ID=%X{traceId}] %msg%n"

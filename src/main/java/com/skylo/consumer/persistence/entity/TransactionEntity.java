@@ -5,10 +5,13 @@ import com.skylo.consumer.dto.enums.TransactionStatus;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Table(name = "transaction")
@@ -26,8 +29,9 @@ public class TransactionEntity implements Serializable {
   @Column(name = "transaction_id")
   private String transactionId;
 
-  @Column(name = "payload")
-  private String payload;
+  @JdbcTypeCode(SqlTypes.JSON)
+  @Column(name = "payload", columnDefinition = "jsonb")
+  private Map<String, Object> payload;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "status")
